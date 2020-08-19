@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
+    "urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Mini2_Linh::vendor"
+            title="Vendor"
+            module="Mini2_Linh"
+            sortOrder="51"
+            resource="Mini2_Linh::vendor"/>
+        <add
+            id="Mini2_Linh::show"
+            title="Show Magenest Test Vendor Linh"
+            module="Mini2_Linh"
+            sortOrder="15"
+            action="linh/index/index"
+            parent="Mini2_Linh::vendor"
+            resource="Mini2_Linh::show"/>
+    </menu>
+
+</config>
+
