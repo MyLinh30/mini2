@@ -6,19 +6,12 @@ namespace Mini2\Linh\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Customer\Model\CustomerFactory;
-use Psr\Log\LoggerInterface;
-use Magento\Customer\Api\CustomerRepositoryInterface;
 
-class CustomerChangeVendor implements ObserverInterface
+class CreateCustomerCreateVendor implements ObserverInterface
 {
-    protected $_customerFactory;
 
-    public function __construct(CustomerFactory $customerFactory)
-    {
-        $this->_customerFactory = $customerFactory;
-    }
-    public function execute(\Magento\Framework\Event\Observer $observer)
+
+    public function execute(Observer $observer)
     {
         $customer = $observer->getData('customer');
         $id = $customer->getId();
@@ -29,5 +22,6 @@ class CustomerChangeVendor implements ObserverInterface
         }catch (\Exception $exception){
             throwException($exception);
         }
+        // TODO: Implement execute() method.
     }
 }

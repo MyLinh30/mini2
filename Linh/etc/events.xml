@@ -2,10 +2,14 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
 
-    <event name="customer_save_after_data_object">
-        <observer name="customer_save_after_observer"
-                  instance="Mini2\Linh\Observer\CustomerChangeVendor" />
-    </event>
+<!--    <event name="customer_register_success">-->
+<!--        <observer name="customer_register_success_observer"-->
+<!--                  instance="Mini2\Linh\Observer\CustomerChangeVendor" />-->
+<!--        <observer name="customer_create_vendor_observer"-->
+<!--                  instance="Mini2\Linh\Observer\CreateCustomerCreateVendor"/>-->
+<!--    </event>-->
+
+
 
 
 <!--    <event name="movie_save_after">-->

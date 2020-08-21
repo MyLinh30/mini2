@@ -1,0 +1,72 @@
+<div class="btn_first">
+    <div id="popup-modal-1">
+        <h1> Hi I'm here.... </h1>
+    </div>
+    <button style="color: #2ca02c" id="btn_show_parttime">MAGENEST</button>
+    <br/>
+
+</div>
+<div id="popup-modal" style="display: none">
+    <form  id="custom-form" class="showcustomer" method="POST">
+        <strong> 6.Create a new frontend page </strong></br>
+        <input  id="idcustomer" name="idcustomer" style="width: 300px" type="text" placeholder="Customer data displayed here"> </br>
+        <button style="margin-top: 15px" id="sendAjax">Ok</button>
+    </form>
+</div>
+
+
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/modal',
+        'mage/url',
+    ], function($,modal,urlBuilder) {
+        var options = {
+            type: 'popup',
+            responsive: true,
+            innerScroll: true,
+            title: 'Magenest Part time test',
+            buttons: [{
+                text: $.mage.__('Close'),
+                class: 'primary close action ',
+                click: function () {
+                    this.closeModal();
+                }
+            }]
+        };
+        var popup = modal(options, $('#popup-modal'));
+        $("#btn_show_parttime").on("click",function(){
+            $('#popup-modal').modal('openModal');
+        });
+        $('#sendAjax').on('click', function (event) {
+            event.preventDefault();
+            let customLink = "http://localhost/m235/linh/index/getcustomerajax";
+            let getIdCustomerfromInput = $('#idcustomer').val();
+            $.post(customLink,
+                { id_customer: getIdCustomerfromInput},
+                function(data, status){
+                alert(data);
+                },
+                'json'
+            );
+                // $.ajax({
+                //     url : customLink,
+                //     type: "POST",
+                //     data: { 'idcustomer': getIdCustomerfromInput},
+                //     showLoader:true,
+                //     cache:false,
+                //     dataType:'json',
+                //     success : function (result){
+                //         $('#result').html(result);
+                //     }
+                //     error: function() {
+                //         alert('error');
+                //     }
+                // }
+        })
+    });
+</script>
+
+
+
+
